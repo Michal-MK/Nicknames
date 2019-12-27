@@ -15,7 +15,10 @@ namespace Nicknames {
 		public string Content { get => _content; set { _content = value; Notify(nameof(Content)); } }
 
 		public void ChangeWord() {
-			throw new NotImplementedException();
+			int index = MainWindow.Rand.Next(0, MainWindow.WordBank.Count);
+			string result = MainWindow.WordBank[index];
+			MainWindow.WordBank.RemoveAt(index);
+			Content = result;
 		}
 
 		public string FillColor { get => _fillColor; set { _fillColor = value; Notify(nameof(FillColor)); } }

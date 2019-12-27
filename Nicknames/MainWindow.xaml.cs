@@ -12,17 +12,15 @@ namespace Nicknames {
 	/// </summary>
 	public partial class MainWindow : Window {
 
-		public static HashSet<string> WordBank { get; set; }
-		public static HashSet<string> ExhaustedBank { get; set; }
+		public static List<string> WordBank { get; set; }
+		public static List<string> ExhaustedBank { get; set; }
 
+		public static Random Rand = new Random();
 
 		public MainWindow() {
 			InitializeComponent();
-			Random r = new Random(DateTime.Now.Millisecond);
 
-			WordBank = new HashSet<string>(File.ReadAllLines("wordDB.txt"));
-
-			List<string> words = WordBank.ToList();
+			WordBank = new List<string>(File.ReadAllLines("wordDB.txt"));
 
 			for (int i = 0; i < 5; i++) {
 				for (int j = 0; j < 5; j++) {
@@ -30,7 +28,7 @@ namespace Nicknames {
 
 					FieldModel model = new FieldModel {
 						FillColor = Brushes.White.ToString(),
-						Content = words[r.Next(0,words.Count)]
+						Content = WordBank[Rand.Next(0, WordBank.Count)]
 					};
 
 					Grid.SetRow(f, i);
