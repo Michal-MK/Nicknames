@@ -20,7 +20,7 @@ namespace Nicknames {
 		public int index = 0;
 		private Dictionary<int, string> colors = new Dictionary<int, string> {
 			{ 0, "White" },
-			{ 1, "Blue" },
+			{ 1, "CornflowerBlue" },
 			{ 2, "Red" },
 			{ 3, "Yellow" },
 			{ 4, "Black" }

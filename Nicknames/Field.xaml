@@ -13,11 +13,13 @@
 	<UserControl.DataContext>
 		<local:FieldModel/>
 	</UserControl.DataContext>
-	<Border BorderThickness="2" BorderBrush="Black">
-		<Grid Background="{Binding FillColor}" Margin="30" MouseRightButtonDown="Grid_MouseRightButtonDown" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-			<Viewbox>
-				<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
-			</Viewbox>
+	<Border BorderThickness="2" BorderBrush="Black" Background="{Binding FillColor}" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseRightButtonDown="Grid_MouseRightButtonDown">
+		<Grid>
+			<Grid Margin="30">
+				<Viewbox>
+					<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
+				</Viewbox>
+			</Grid>
 		</Grid>
 	</Border>
 </UserControl>
