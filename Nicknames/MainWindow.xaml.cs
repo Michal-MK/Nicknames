@@ -11,13 +11,18 @@ namespace Nicknames {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
+
+		public static HashSet<string> WordBank { get; set; }
+		public static HashSet<string> ExhaustedBank { get; set; }
+
+
 		public MainWindow() {
 			InitializeComponent();
 			Random r = new Random(DateTime.Now.Millisecond);
 
-			HashSet<string> set = new HashSet<string>(File.ReadAllLines("wordDB.txt"));
+			WordBank = new HashSet<string>(File.ReadAllLines("wordDB.txt"));
 
-			List<string> words = set.ToList();
+			List<string> words = WordBank.ToList();
 
 			for (int i = 0; i < 5; i++) {
 				for (int j = 0; j < 5; j++) {
