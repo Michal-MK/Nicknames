@@ -14,7 +14,7 @@
 		<local:FieldModel/>
 	</UserControl.DataContext>
 	<Border BorderThickness="2" BorderBrush="Black">
-		<Grid Background="{Binding FillColor}" Margin="5" MouseRightButtonDown="Grid_MouseRightButtonDown" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+		<Grid Background="{Binding FillColor}" Margin="30" MouseRightButtonDown="Grid_MouseRightButtonDown" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
 			<Viewbox>
 				<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
 			</Viewbox>
