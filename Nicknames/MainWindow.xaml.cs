@@ -20,6 +20,9 @@ namespace Nicknames {
 		public MainWindow() {
 			InitializeComponent();
 
+			WindowState = WindowState.Maximized;
+			WindowStyle = WindowStyle.None;
+
 			WordBank = new List<string>(File.ReadAllLines("wordDB.txt"));
 
 			for (int i = 0; i < 5; i++) {
