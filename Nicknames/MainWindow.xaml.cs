@@ -15,6 +15,10 @@ namespace Nicknames {
 		public static List<string> WordBank { get; set; }
 		public static List<string> ExhaustedBank { get; set; } = new List<string>();
 
+		public static List<string> DeletedWords { get; set; } = new List<string>();
+
+
+
 		public static Random Rand = new Random();
 
 		public List<FieldModel> Models = new List<FieldModel>();
@@ -25,6 +29,7 @@ namespace Nicknames {
 			InitializeComponent();
 
 			KeyDown += MainWindow_KeyDown;
+			Closing += MainWindow_Closing;
 
 			WindowState = WindowState.Maximized;
 			WindowStyle = WindowStyle.None;
@@ -54,6 +59,13 @@ namespace Nicknames {
 					Models.Add(model);
 				}
 			}
+		}
+
+		private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+			List<string> words = new List<string>();
+			words.AddRange(ExhaustedBank);
+			words.AddRange(WordBank);
+			File.WriteAllLines("wordDB.txt", words);
 		}
 
 		private void MainWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {

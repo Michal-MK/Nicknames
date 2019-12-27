@@ -18,7 +18,7 @@ namespace Nicknames {
 			int index = MainWindow.Rand.Next(0, MainWindow.WordBank.Count);
 			string result = MainWindow.WordBank[index];
 			MainWindow.WordBank.RemoveAt(index);
-			MainWindow.ExhaustedBank.Add(result);
+			MainWindow.DeletedWords.Add(result);
 			Content = result;
 		}
 
