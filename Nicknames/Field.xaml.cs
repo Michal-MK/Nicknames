@@ -17,7 +17,7 @@ namespace Nicknames {
 			Model.ChangeWord();
 		}
 
-		private int index = 0;
+		public int index = 0;
 		private Dictionary<int, string> colors = new Dictionary<int, string> {
 			{ 0, "White" },
 			{ 1, "Blue" },
