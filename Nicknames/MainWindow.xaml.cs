@@ -35,6 +35,8 @@ namespace Nicknames {
 			WindowStyle = WindowStyle.None;
 
 			WordBank = new List<string>(File.ReadAllLines("wordDB.txt"));
+			WordBank = WordBank.Where(s => s.Length <= 8 && !s.EndsWith("ička")).ToList();
+
 
 			for (int i = 0; i < 5; i++) {
 				for (int j = 0; j < 5; j++) {
