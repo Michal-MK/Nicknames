@@ -62,15 +62,21 @@ namespace Nicknames {
 			CZComm = new Command(() => SelectedLang = "CZ");
 
 			LoadComm = new Command(() => Load());
+
+			SelectedLang = "CZ";
+			IgnoreListWord = "ička,očka,atka";
 		}
 
 		public void Load() {
 			MenuGrid.Visibility = Visibility.Collapsed;
 			WordBank = new List<string>(File.ReadAllLines($"wordDB_{SelectedLang}.txt"));
 			WordBank = WordBank.Where(s => s.Length <= (int)SliderVal).ToList();
-
+			
 			if (!string.IsNullOrWhiteSpace(IgnoreListWord)) {
-				WordBank = WordBank.Where(s => !s.Contains(IgnoreListWord)).ToList();
+				string[] words = IgnoreListWord.Split(',');
+				foreach (string item in words) {
+					WordBank = WordBank.Where(s => !s.Contains(IgnoreListWord)).ToList();
+				}
 			}
 
 			for (int i = 0; i < 5; i++) {

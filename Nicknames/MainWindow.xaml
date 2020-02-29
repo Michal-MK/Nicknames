@@ -45,7 +45,7 @@
 						Value="{Binding SliderVal, UpdateSourceTrigger=PropertyChanged}"/>
 				<Border Margin="10"/>
 				<TextBlock Text="Ignored words:"/>
-				<TextBox Text="{Binding IngoreListWord, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBox Text="{Binding IgnoreListWord, UpdateSourceTrigger=PropertyChanged}"/>
 			</StackPanel>
 			<Button Content="Play" Command="{Binding LoadComm}" Padding="20"/>
 		</StackPanel>

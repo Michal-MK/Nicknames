@@ -22,7 +22,7 @@ namespace Nicknames {
 			{ 0, "White" },
 			{ 1, "CornflowerBlue" },
 			{ 2, "Red" },
-			{ 3, "Beige" },
+			{ 3, "#d9b382" },
 			{ 4, "Black" }
 		};
 
