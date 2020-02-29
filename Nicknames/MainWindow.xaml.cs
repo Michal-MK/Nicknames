@@ -64,6 +64,7 @@ namespace Nicknames {
 			LoadComm = new Command(() => Load());
 
 			SelectedLang = "CZ";
+			SliderVal = 10;
 			IgnoreListWord = "ička,očka,atka";
 		}
 
@@ -71,7 +72,7 @@ namespace Nicknames {
 			MenuGrid.Visibility = Visibility.Collapsed;
 			WordBank = new List<string>(File.ReadAllLines($"wordDB_{SelectedLang}.txt"));
 			WordBank = WordBank.Where(s => s.Length <= (int)SliderVal).ToList();
-			
+
 			if (!string.IsNullOrWhiteSpace(IgnoreListWord)) {
 				string[] words = IgnoreListWord.Split(',');
 				foreach (string item in words) {
@@ -106,13 +107,19 @@ namespace Nicknames {
 
 		private void MainWindow_Closing(object sender, CancelEventArgs e) {
 			List<string> words = new List<string>();
-			words.AddRange(ExhaustedBank);
-			words.AddRange(WordBank);
+
+			if (ExhaustedBank != null) {
+				words.AddRange(ExhaustedBank);
+			}
+			if (WordBank != null) {
+				words.AddRange(WordBank);
+			}
+
 			File.WriteAllLines($"wordDB_{SelectedLang}.txt", words);
 		}
 
 		private void MainWindow_KeyDown(object sender, KeyEventArgs e) {
-			if(e.Key == Key.R) {
+			if (e.Key == Key.R) {
 				foreach (FieldModel model in Models) {
 					int wordIndex = Rand.Next(0, WordBank.Count);
 					model.Content = WordBank[wordIndex];
