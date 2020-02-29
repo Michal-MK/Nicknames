@@ -22,5 +22,32 @@
 			<RowDefinition/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
+
+		<StackPanel Grid.RowSpan="5" Grid.ColumnSpan="5" x:Name="MenuGrid">
+			<StackPanel HorizontalAlignment="Center" Margin="0 20">
+				<Button Content="CZ" Command="{Binding CZComm}" Padding="20" Margin="0 0 0 20"/>
+				<Button Content="EN" Command="{Binding ENComm}" Padding="20"/>
+			</StackPanel>
+			
+			<StackPanel Margin="10">
+				<TextBlock>
+					<Run Text="Selected lang: "/>
+					<Run Text="{Binding SelectedLang, UpdateSourceTrigger=PropertyChanged}"/>
+				</TextBlock>
+				
+				<TextBlock>
+					<Run Text="Word length less than: "/>
+					<Run Text="{Binding ElementName=_slider, Path=Value, Mode=OneWay}"/>
+				</TextBlock>
+				
+				<Slider Minimum="4" Maximum="30" TickFrequency="1" IsSnapToTickEnabled="True"
+						SmallChange="1" LargeChange="1" Name="_slider"
+						Value="{Binding SliderVal, UpdateSourceTrigger=PropertyChanged}"/>
+				<Border Margin="10"/>
+				<TextBlock Text="Ignored words:"/>
+				<TextBox Text="{Binding IngoreListWord, UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+			<Button Content="Play" Command="{Binding LoadComm}" Padding="20"/>
+		</StackPanel>
 	</Grid>
 </Window>

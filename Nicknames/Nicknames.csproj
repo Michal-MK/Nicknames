@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="wordDB.txt">
+    <Reference Include="Igor.Models">
+      <HintPath>..\packages\Igor.WPF\Igor.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="wordDB_CZ.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="wordDB_EN.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
