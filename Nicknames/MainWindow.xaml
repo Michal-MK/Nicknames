@@ -52,12 +52,21 @@
 		</StackPanel>
 		
 		
-		<StackPanel Grid.Row="5" Grid.ColumnSpan="5" VerticalAlignment="Bottom" Panel.ZIndex="2" Visibility="{Binding BottomMenuVis}">
-			<Button Content="{Binding ClickModeText}" Click="ClickModeButton"/>
-		</StackPanel>
+		<UniformGrid Grid.Row="5" Grid.ColumnSpan="5" Rows="1"
+					 VerticalAlignment="Bottom" Panel.ZIndex="2"
+					 Visibility="{Binding BottomMenuVis}">
+			<UniformGrid.Resources>
+				<Style TargetType="Button">
+					<Setter Property="FontSize" Value="20"/>
+				</Style>
+			</UniformGrid.Resources>
+			<Button Content="{Binding ClickModeText, FallbackValue='Click mode: ChangeWord'}" Click="ClickModeButton"/>
+			<Button Content="New Board" Click="ResetButtonClick"/>
+			<Button Content="Exit" Click="ExitButtonClick"/>
+		</UniformGrid>
 
 		<StackPanel Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Panel.ZIndex="2">
-			<Button Content="..." Padding="4" Command="{Binding ToggleMenuCommand}"/>
+			<Button Content="..." Padding="4" FontSize="20" Command="{Binding ToggleMenuCommand}"/>
 		</StackPanel>
 	</Grid>
 </Window>

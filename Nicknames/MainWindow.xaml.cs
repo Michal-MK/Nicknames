@@ -134,19 +134,31 @@ namespace Nicknames {
 
 		private void MainWindow_KeyDown(object sender, KeyEventArgs e) {
 			if (e.Key == Key.R) {
-				foreach (FieldModel model in Models) {
-					int wordIndex = Rand.Next(0, WordBank.Count);
-					model.Content = WordBank[wordIndex];
-					ExhaustedBank.Add(model.Content);
-					model.FillColor = "White";
-					Views[model].index = 0;
-				}
+				NewBoard();
+			}
+		}
+
+		public void NewBoard() {
+			foreach (FieldModel model in Models) {
+				int wordIndex = Rand.Next(0, WordBank.Count);
+				model.Content = WordBank[wordIndex];
+				ExhaustedBank.Add(model.Content);
+				model.FillColor = "White";
+				Views[model].index = 0;
 			}
 		}
 
 		private void ClickModeButton(object sender, RoutedEventArgs e) {
 			ClickMode = ClickMode == SingleClickMode.ChangeWord ? SingleClickMode.ChangeColour : SingleClickMode.ChangeWord;
 			ClickModeText = "Click Mode: " + ClickMode.ToString();
+		}
+
+		private void ExitButtonClick(object sender, RoutedEventArgs e) {
+			Application.Current.Shutdown();
+		}
+
+		private void ResetButtonClick(object sender, RoutedEventArgs e) {
+			NewBoard();
 		}
 	}
 }

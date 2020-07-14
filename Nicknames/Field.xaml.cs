@@ -31,6 +31,8 @@ namespace Nicknames {
 			}
 			else {
 				Model.ChangeWord();
+				index = 0;
+				Model.FillColor = colors[index];
 			}
 		}
 	}
