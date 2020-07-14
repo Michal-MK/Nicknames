@@ -4,6 +4,8 @@ using System.ComponentModel;
 namespace Nicknames {
 	public class FieldModel : INotifyPropertyChanged {
 
+		public static bool Setup { get; set; }
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public void Notify(string propName) {

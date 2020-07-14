@@ -32,6 +32,8 @@ namespace Nicknames {
 
 		public List<FieldModel> Models = new List<FieldModel>();
 
+		public static SingleClickMode ClickMode { get; set; } = SingleClickMode.ChangeWord;
+
 		public Dictionary<FieldModel, Field> Views = new Dictionary<FieldModel, Field>();
 
 		private ICommand _cZComm;
@@ -40,7 +42,13 @@ namespace Nicknames {
 		private double _sliderVal;
 		private string _ignoreListWord;
 		private string _selectedLang;
+		private string _clickModeText;
+		private Visibility _bottomMenuVis;
+		private ICommand _toggleMenuCommand;
 
+		public ICommand ToggleMenuCommand { get => _toggleMenuCommand; set { _toggleMenuCommand = value; Notify(nameof(ToggleMenuCommand)); } }
+		public Visibility BottomMenuVis { get => _bottomMenuVis; set { _bottomMenuVis = value; Notify(nameof(BottomMenuVis)); } }
+		public string ClickModeText { get => _clickModeText; set { _clickModeText = value; Notify(nameof(ClickModeText)); } }
 		public string SelectedLang { get => _selectedLang; set { _selectedLang = value; Notify(nameof(SelectedLang)); } }
 		public string IgnoreListWord { get => _ignoreListWord; set { _ignoreListWord = value; Notify(nameof(IgnoreListWord)); } }
 		public double SliderVal { get => _sliderVal; set { _sliderVal = value; Notify(nameof(SliderVal)); } }
@@ -61,11 +69,17 @@ namespace Nicknames {
 			ENComm = new Command(() => SelectedLang = "EN");
 			CZComm = new Command(() => SelectedLang = "CZ");
 
+			ToggleMenuCommand = new Command(() => {
+				BottomMenuVis = BottomMenuVis == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+			});
+
 			LoadComm = new Command(() => Load());
 
 			SelectedLang = "CZ";
 			SliderVal = 10;
 			IgnoreListWord = "ička,očka,atka";
+
+			ClickModeText = "Click Mode: " + ClickMode.ToString();
 		}
 
 		public void Load() {
@@ -128,6 +142,11 @@ namespace Nicknames {
 					Views[model].index = 0;
 				}
 			}
+		}
+
+		private void ClickModeButton(object sender, RoutedEventArgs e) {
+			ClickMode = ClickMode == SingleClickMode.ChangeWord ? SingleClickMode.ChangeColour : SingleClickMode.ChangeWord;
+			ClickModeText = "Click Mode: " + ClickMode.ToString();
 		}
 	}
 }

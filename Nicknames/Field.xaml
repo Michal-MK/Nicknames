@@ -13,7 +13,8 @@
 	<UserControl.DataContext>
 		<local:FieldModel/>
 	</UserControl.DataContext>
-	<Border BorderThickness="2" BorderBrush="Black" Background="{Binding FillColor}" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseRightButtonDown="Grid_MouseRightButtonDown">
+	<Border BorderThickness="2" BorderBrush="Black" Background="{Binding FillColor}"
+			MouseLeftButtonDown="Grid_MouseLeftButtonDown">
 		<Grid>
 			<Grid Margin="30">
 				<Viewbox>

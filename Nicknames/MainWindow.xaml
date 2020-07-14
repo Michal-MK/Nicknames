@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nicknames"
         mc:Ignorable="d"
+		d:DataContext="{d:DesignInstance Type=local:MainWindow}"
         Title="MainWindow" Height="450" Width="800">
 
 	<Grid x:Name="Root">
@@ -48,6 +49,15 @@
 				<TextBox Text="{Binding IgnoreListWord, UpdateSourceTrigger=PropertyChanged}"/>
 			</StackPanel>
 			<Button Content="Play" Command="{Binding LoadComm}" Padding="20"/>
+		</StackPanel>
+		
+		
+		<StackPanel Grid.Row="5" Grid.ColumnSpan="5" VerticalAlignment="Bottom" Panel.ZIndex="2" Visibility="{Binding BottomMenuVis}">
+			<Button Content="{Binding ClickModeText}" Click="ClickModeButton"/>
+		</StackPanel>
+
+		<StackPanel Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Panel.ZIndex="2">
+			<Button Content="..." Padding="4" Command="{Binding ToggleMenuCommand}"/>
 		</StackPanel>
 	</Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Nicknames {
 	/// <summary>
@@ -13,23 +14,24 @@ namespace Nicknames {
 			InitializeComponent();
 		}
 
-		private void Grid_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-			Model.ChangeWord();
-		}
-
 		public int index = 0;
 		private Dictionary<int, string> colors = new Dictionary<int, string> {
 			{ 0, "White" },
 			{ 1, "CornflowerBlue" },
 			{ 2, "Red" },
-			{ 3, "#d9b382" },
+			{ 3, "Yellow" },
 			{ 4, "Black" }
 		};
 
-		private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-			index++;
-			index %= 5;
-			Model.FillColor = colors[index];
+		private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+			if (MainWindow.ClickMode == SingleClickMode.ChangeColour) {
+				index++;
+				index %= 5;
+				Model.FillColor = colors[index];
+			}
+			else {
+				Model.ChangeWord();
+			}
 		}
 	}
 }
