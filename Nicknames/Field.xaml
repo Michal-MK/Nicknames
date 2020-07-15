@@ -25,7 +25,9 @@
 								<RotateTransform Angle="180"/>
 							</TextBlock.RenderTransform>
 						</TextBlock>
-						<TextBlock Margin="-20 0 0 0" HorizontalAlignment="Center" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
+						<TextBlock Margin="-20 0 0 0" HorizontalAlignment="Center"
+								   Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
+								   Foreground="{Binding ForegroundColor}"/>
 					</StackPanel>
 				</Viewbox>
 			</Grid>

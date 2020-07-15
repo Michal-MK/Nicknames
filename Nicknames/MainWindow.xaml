@@ -58,11 +58,13 @@
 			<UniformGrid.Resources>
 				<Style TargetType="Button">
 					<Setter Property="FontSize" Value="20"/>
+					<Setter Property="Padding" Value="4"/>
 				</Style>
 			</UniformGrid.Resources>
 			<Button Content="{Binding ClickModeText, FallbackValue='Click mode: ChangeWord'}" Click="ClickModeButton"/>
 			<Button Content="New Board" Click="ResetButtonClick"/>
 			<Button Content="Exit" Click="ExitButtonClick"/>
+			<Border Background="LightGray"/>
 		</UniformGrid>
 
 		<StackPanel Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Panel.ZIndex="2">

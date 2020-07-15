@@ -76,8 +76,8 @@ namespace Nicknames {
 			LoadComm = new Command(() => Load());
 
 			SelectedLang = "CZ";
-			SliderVal = 10;
-			IgnoreListWord = "ička,očka,atka";
+			SliderVal = 6;
+			IgnoreListWord = "ička, očka, atka";
 
 			ClickModeText = "Click Mode: " + ClickMode.ToString();
 		}
@@ -88,9 +88,9 @@ namespace Nicknames {
 			WordBank = WordBank.Where(s => s.Length <= (int)SliderVal).ToList();
 
 			if (!string.IsNullOrWhiteSpace(IgnoreListWord)) {
-				string[] words = IgnoreListWord.Split(',');
+				IEnumerable<string> words = IgnoreListWord.Split(',').Select(s => s.Trim());
 				foreach (string item in words) {
-					WordBank = WordBank.Where(s => !s.Contains(IgnoreListWord)).ToList();
+					WordBank = WordBank.Where(s => !s.Contains(item)).ToList();
 				}
 			}
 
@@ -144,6 +144,7 @@ namespace Nicknames {
 				model.Content = WordBank[wordIndex];
 				ExhaustedBank.Add(model.Content);
 				model.FillColor = "White";
+				model.ForegroundColor = "Black";
 				Views[model].index = 0;
 			}
 		}

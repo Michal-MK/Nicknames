@@ -28,6 +28,12 @@ namespace Nicknames {
 				index++;
 				index %= 5;
 				Model.FillColor = colors[index];
+				if(Model.FillColor == "Black") {
+					Model.ForegroundColor = "White";
+				}
+				else {
+					Model.ForegroundColor = "Black";
+				}
 			}
 			else {
 				Model.ChangeWord();
