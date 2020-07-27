@@ -43,7 +43,7 @@ namespace Nicknames {
 		private string _ignoreListWord;
 		private string _selectedLang;
 		private string _clickModeText;
-		private Visibility _bottomMenuVis;
+		private Visibility _bottomMenuVis = Visibility.Collapsed;
 		private ICommand _toggleMenuCommand;
 
 		public ICommand ToggleMenuCommand { get => _toggleMenuCommand; set { _toggleMenuCommand = value; Notify(nameof(ToggleMenuCommand)); } }

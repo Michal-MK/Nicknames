@@ -58,7 +58,7 @@
 			<UniformGrid.Resources>
 				<Style TargetType="Button">
 					<Setter Property="FontSize" Value="20"/>
-					<Setter Property="Padding" Value="4"/>
+					<Setter Property="Padding" Value="8"/>
 				</Style>
 			</UniformGrid.Resources>
 			<Button Content="{Binding ClickModeText, FallbackValue='Click mode: ChangeWord'}" Click="ClickModeButton"/>
@@ -68,7 +68,7 @@
 		</UniformGrid>
 
 		<StackPanel Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Panel.ZIndex="2">
-			<Button Content="..." Padding="4" FontSize="20" Command="{Binding ToggleMenuCommand}"/>
+			<Button Content="..." Padding="8" FontSize="20" Command="{Binding ToggleMenuCommand}"/>
 		</StackPanel>
 	</Grid>
 </Window>
