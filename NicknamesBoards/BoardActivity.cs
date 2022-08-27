@@ -55,6 +55,7 @@ namespace NicknamesBoards {
 
 			SetContentView(Resource.Layout.board);
 
+			Window.AddFlags(WindowManagerFlags.KeepScreenOn);
 
 			TableLayout tl = FindViewById<TableLayout>(Resource.Id.b_table);
 			tl.Post(() => {
